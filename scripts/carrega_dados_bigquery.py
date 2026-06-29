@@ -1,7 +1,9 @@
 from google.cloud import bigquery
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../chave/dsalab-c2eb2fcd348c.json"
+keyfile = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+if not keyfile:
+    raise EnvironmentError("Defina a variavel GOOGLE_APPLICATION_CREDENTIALS com o caminho da chave.")
 
 project_id = "dsalab"
 dataset_id = "dsastaging"
